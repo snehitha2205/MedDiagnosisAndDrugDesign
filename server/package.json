@@ -5,9 +5,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "preinstall": "npm install -g node-gyp",
-  "install": "node-gyp rebuild",
-  "build": "npm rebuild bcrypt --update-binary",
     "start:all": "concurrently \"npm run start\" \"python3 segment.py\" \"python3 predict.py\" \"python3 DrugMoleculeGenerator.py\" \"python3 masking.py\" \"python3 Docking.py\" \"python3 BioInformatics.py\" \"python3 NIFTI.py\""
   },
   "keywords": [],
@@ -15,7 +12,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
