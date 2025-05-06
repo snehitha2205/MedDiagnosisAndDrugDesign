@@ -7,7 +7,11 @@ import torch.nn as nn
 import joblib
 from flask_cors import CORS
 import os
+import warnings
+from sklearn.exceptions import InconsistentVersionWarning
 
+# Suppress scikit-learn version warnings
+warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 app = Flask(__name__)
 CORS(app)
 
