@@ -1,0 +1,297 @@
+/* index.css */
+.verification-screen {
+	min-height: 100vh;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	background-color: #000;
+	color: #FFDEDE;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  /* Animated Background */
+  .verification-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	background: linear-gradient(135deg, #000000 0%, #1a000a 100%);
+	animation: gradientShift 15s ease infinite alternate;
+  }
+  
+  @keyframes gradientShift {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+  }
+  
+  .verification-pattern {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: 
+	  radial-gradient(circle at 20% 30%, rgba(207, 15, 71, 0.15) 0%, transparent 25%),
+	  radial-gradient(circle at 80% 70%, rgba(255, 11, 85, 0.15) 0%, transparent 25%);
+	animation: patternPulse 8s ease infinite;
+  }
+  
+  @keyframes patternPulse {
+	0%, 100% { opacity: 0.8; }
+	50% { opacity: 1; }
+  }
+  
+  /* Glass Card */
+  .verification-container {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	max-width: 500px;
+	padding: 2rem;
+  }
+  
+  .verification-glass-card {
+	background: rgba(255, 222, 222, 0.05);
+	backdrop-filter: blur(12px);
+	-webkit-backdrop-filter: blur(12px);
+	border: 1px solid rgba(255, 11, 85, 0.2);
+	border-radius: 24px;
+	padding: 3rem;
+	box-shadow: 0 20px 50px rgba(207, 15, 71, 0.2);
+	transform-style: preserve-3d;
+	transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	overflow: hidden;
+  }
+  
+  .verification-glass-card::before {
+	content: '';
+	position: absolute;
+	top: -50%;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: linear-gradient(
+	  to bottom right,
+	  rgba(255, 11, 85, 0.1) 0%,
+	  transparent 50%,
+	  rgba(207, 15, 71, 0.1) 100%
+	);
+	transform: rotate(30deg);
+	animation: shine 6s infinite;
+  }
+  
+  @keyframes shine {
+	0% { transform: rotate(30deg) translate(-30%, -30%); }
+	100% { transform: rotate(30deg) translate(30%, 30%); }
+  }
+  
+  /* Header Section */
+  .verification-header {
+	text-align: center;
+	margin-bottom: 2.5rem;
+  }
+  
+  .verification-icon-circle {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	background: rgba(207, 15, 71, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto 1.5rem;
+	position: relative;
+	border: 1px solid rgba(255, 11, 85, 0.3);
+  }
+  
+  .icon-pulse {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background: rgba(255, 11, 85, 0.2);
+	animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+	0% { transform: scale(0.8); opacity: 0.7; }
+	70% { transform: scale(1.2); opacity: 0; }
+	100% { opacity: 0; }
+  }
+  
+  .verification-lock-icon {
+	font-size: 1.8rem;
+	color: #FF0B55;
+  }
+  
+  .verification-title {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	background: linear-gradient(90deg, #FF0B55, #CF0F47);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+  }
+  
+  .verification-subtitle {
+	font-size: 1rem;
+	opacity: 0.8;
+	line-height: 1.6;
+  }
+  
+  /* Input Section */
+  .verification-input-section {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+  }
+  
+  .verification-input-group {
+	position: relative;
+  }
+  
+  .verification-input-icon-container {
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: #FF0B55;
+  }
+  
+  .verification-input-icon {
+	font-size: 1.2rem;
+  }
+  
+  .verification-country-code {
+	font-weight: 600;
+	color: #FFDEDE;
+  }
+  
+  .verification-input {
+	width: 100%;
+	padding: 16px 16px 16px 60px;
+	background: rgba(0, 0, 0, 0.4);
+	border: 1px solid rgba(255, 11, 85, 0.3);
+	border-radius: 12px;
+	color: #FFDEDE;
+	font-size: 1rem;
+	transition: all 0.3s ease;
+  }
+  
+  .verification-input:focus {
+	outline: none;
+	border-color: #FF0B55;
+	box-shadow: 0 0 0 3px rgba(255, 11, 85, 0.2);
+	background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .verification-error-message {
+	color: #FF0B55;
+	font-size: 0.9rem;
+	padding: 12px;
+	background: rgba(207, 15, 71, 0.1);
+	border-radius: 8px;
+	border-left: 3px solid #FF0B55;
+	animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+	from { opacity: 0; transform: translateY(-5px); }
+	to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Button */
+  .verification-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+	padding: 16px;
+	background: linear-gradient(90deg, #FF0B55, #CF0F47);
+	color: white;
+	border: none;
+	border-radius: 12px;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	margin-top: 1rem;
+	position: relative;
+	overflow: hidden;
+  }
+  
+  .verification-button:disabled {
+	background: rgba(255, 11, 85, 0.5);
+	cursor: not-allowed;
+  }
+  
+  .verification-button:hover:not(:disabled) {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(207, 15, 71, 0.4);
+  }
+  
+  .verification-button-icon {
+	transition: transform 0.3s ease;
+  }
+  
+  .verification-button:hover:not(:disabled) .verification-button-icon {
+	transform: translateX(5px);
+  }
+  
+  .verification-spinner {
+	width: 20px;
+	height: 20px;
+	border: 3px solid rgba(255, 255, 255, 0.3);
+	border-radius: 50%;
+	border-top-color: white;
+	animation: spin 1s ease infinite;
+  }
+  
+  @keyframes spin {
+	to { transform: rotate(360deg); }
+  }
+  
+  /* Footer */
+  .verification-footer {
+	text-align: center;
+	margin-top: 2.5rem;
+	font-size: 0.8rem;
+	opacity: 0.7;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+	.verification-container {
+	  padding: 1.5rem;
+	}
+	
+	.verification-glass-card {
+	  padding: 2.5rem 1.8rem;
+	}
+	
+	.verification-title {
+	  font-size: 1.8rem;
+	}
+  }
+  
+  @media (max-width: 480px) {
+	.verification-glass-card {
+	  padding: 2rem 1.5rem;
+	}
+	
+	.verification-title {
+	  font-size: 1.6rem;
+	}
+	
+	.verification-input {
+	  padding: 14px 14px 14px 50px;
+	}
+  }

@@ -1,0 +1,45 @@
+.metrics-section {
+  background-color: #CF0F47;
+  color: #FFDEDE;
+  padding: 4rem 2rem;
+}
+
+.metrics-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.metric-card {
+  padding: 2rem 1rem;
+  transition: transform 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: scale(1.05);
+}
+
+.metric-value {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.metric-label {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .metrics-section {
+    padding: 3rem 1rem;
+  }
+  
+  .metrics-container {
+    grid-template-columns: 1fr;
+  }
+}

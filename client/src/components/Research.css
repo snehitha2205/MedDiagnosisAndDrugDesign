@@ -1,0 +1,47 @@
+.research {
+    padding: 4rem 2rem;
+    background-color: white;
+  }
+  
+  .research h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 2rem;
+  }
+  
+  .publication-list {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .publication-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .publication-item:last-child {
+    border-bottom: none;
+  }
+  
+  .publication-item h3 {
+    color: #3182ce;
+    margin-bottom: 0.5rem;
+  }
+  
+  .publication-item p {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+  }
+  
+  .read-more {
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+  
+  .read-more:hover {
+    text-decoration: underline;
+  }

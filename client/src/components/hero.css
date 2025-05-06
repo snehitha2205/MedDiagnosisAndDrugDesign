@@ -1,0 +1,168 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFDEDE;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  z-index: -1;
+}
+
+.hero-content {
+  max-width: 900px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.hero-button {
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hero-button-primary {
+  background-color: #CF0F47;
+  color: #FFDEDE;
+  border: 2px solid #CF0F47;
+}
+
+.hero-button-primary:hover {
+  background-color: #FF0B55;
+  border-color: #FF0B55;
+  transform: translateY(-2px);
+}
+
+.hero-button-secondary {
+  background-color: transparent;
+  color: #FFDEDE;
+  border: 2px solid #FFDEDE;
+}
+
+.hero-button-secondary:hover {
+  background-color: rgba(255, 222, 222, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .hero-button {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+}
+/* --- BACKGROUND ANIMATION LAYERS --- */
+
+.hero-background::before,
+.hero-background::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 11, 85, 0.15) 0%,
+    rgba(207, 15, 71, 0.05) 40%,
+    transparent 80%
+  );
+  animation: rotateBackground 30s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-background::after {
+  background: radial-gradient(
+    circle,
+    rgba(255, 222, 222, 0.1) 10%,
+    rgba(255, 11, 85, 0.05) 40%,
+    transparent 80%
+  );
+  animation-duration: 60s;
+}
+
+/* Rotation animation */
+@keyframes rotateBackground {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.2);
+  }
+}
+
+/* --- FLOATING PARTICLES --- */
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(0.8);
+    opacity: 0;
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: radial-gradient(#ff0b55 1px, transparent 1px),
+    radial-gradient(#cf0f47 1px, transparent 1px),
+    radial-gradient(#ffdeded9 1px, transparent 1px);
+  background-size: 30px 30px, 60px 60px, 100px 100px;
+  animation: floatParticles 50s linear infinite;
+  opacity: 0.2;
+  z-index: 0;
+}

@@ -1,0 +1,376 @@
+/* Modern UI with Card-Based Predictions */
+.chembel-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #fff;
+  color: #000000;
+}
+
+.chembel-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #FFDEDE;
+}
+
+.chembel-hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.chembel-hero h1 span {
+  color: #FF0B55;
+}
+
+.chembel-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Main Container */
+.chembel-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Input Section */
+.chembel-input-section {
+  max-width: 700px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chembel-input-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #FFDEDE;
+}
+
+.chembel-input-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chembel-highlight {
+  color: #FF0B55;
+  font-weight: 700;
+}
+
+.chembel-input-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.chembel-mask-token {
+  font-family: monospace;
+  background-color: #FFDEDE;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: #CF0F47;
+  font-weight: bold;
+}
+
+.chembel-input-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chembel-smiles-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: 2px solid #eee;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: monospace;
+  transition: all 0.3s ease;
+}
+
+.chembel-smiles-input:focus {
+  outline: none;
+  border-color: #FF0B55;
+  box-shadow: 0 0 0 3px rgba(255, 11, 85, 0.1);
+}
+
+.chembel-example-btn {
+  background: white;
+  color: #FF0B55;
+  border: 2px solid #FF0B55;
+  border-radius: 10px;
+  padding: 0 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.chembel-example-btn:hover {
+  background: #FFDEDE;
+}
+
+.chembel-predict-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #FF0B55;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.chembel-predict-btn:hover {
+  background-color: #CF0F47;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(207, 15, 71, 0.2);
+}
+
+.chembel-predict-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.chembel-spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: chembel-spin 1s linear infinite;
+}
+
+.chembel-spinner circle {
+  stroke: white;
+  stroke-linecap: round;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+}
+
+@keyframes chembel-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.chembel-error-message {
+  background-color: #FFDEDE;
+  color: #CF0F47;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-left: 4px solid #CF0F47;
+}
+
+.chembel-error-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: #CF0F47;
+}
+
+/* Results Section */
+.chembel-results-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chembel-results-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chembel-results-section p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.chembel-predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.chembel-prediction-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #FFDEDE;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chembel-prediction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.chembel-top-prediction {
+  border: 2px solid #FF0B55;
+  background-color: #fffafa;
+}
+
+.chembel-prediction-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chembel-prediction-badge {
+  background-color: #FF0B55;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.chembel-prediction-structure {
+  font-family: monospace;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #000000;
+  word-break: break-all;
+}
+
+.chembel-confidence-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chembel-confidence-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.chembel-confidence-bar {
+  height: 8px;
+  background-color: #FFDEDE;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.chembel-confidence-fill {
+  height: 100%;
+  background-color: #FF0B55;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.chembel-confidence-value {
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #000000;
+  text-align: right;
+}
+
+.chembel-copy-btn {
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+  background-color: #FFDEDE;
+  color: #CF0F47;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.chembel-copy-btn:hover {
+  background-color: #FF0B55;
+  color: white;
+}
+
+.chembel-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+/* Empty State */
+.chembel-empty-state {
+  background: white;
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  border: 2px dashed #FFDEDE;
+}
+
+.chembel-molecule-icon {
+  width: 3rem;
+  height: 3rem;
+  fill: #FFDEDE;
+  margin-bottom: 1rem;
+}
+
+.chembel-empty-state p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.chembel-empty-state small {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chembel-hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .chembel-input-card {
+    padding: 1.5rem;
+  }
+  
+  .chembel-input-wrapper {
+    flex-direction: column;
+  }
+  
+  .chembel-example-btn {
+    padding: 1rem;
+  }
+  
+  .chembel-predictions-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,455 @@
+/* ProteinToSmilesConverter.css */
+.p2s.protein-converter {
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #FFDEDE;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.p2s .converter-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.p2s .converter-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.p2s .converter-title {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.p2s .title-gradient {
+  background: linear-gradient(90deg, #CF0F47, #FF0B55);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.p2s .converter-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.p2s .main-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(207, 15, 71, 0.15);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Input View Styles */
+.p2s .input-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.p2s .panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.p2s .panel-header h2 {
+  color: #000000;
+  margin: 0;
+}
+
+.p2s .badge {
+  background-color: #FF0B55;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-right: 1rem;
+}
+
+.p2s .example-btn {
+  background: none;
+  border: none;
+  color: #CF0F47;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.p2s .example-btn:hover {
+  background-color: rgba(207, 15, 71, 0.1);
+}
+
+.p2s .protein-name-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid #FFDEDE;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border 0.2s;
+}
+
+.p2s .protein-name-input:focus {
+  outline: none;
+  border-color: #FF0B55;
+}
+
+.p2s .sequence-input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #FFDEDE;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 1rem;
+  resize: none;
+  transition: border 0.2s;
+}
+
+.p2s .sequence-input:focus {
+  outline: none;
+  border-color: #FF0B55;
+}
+
+.p2s .action-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.p2s .convert-btn {
+  background-color: #CF0F47;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.p2s .convert-btn:hover {
+  background-color: #FF0B55;
+}
+
+.p2s .convert-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.p2s .convert-btn.loading {
+  background-color: #CF0F47;
+}
+
+.p2s .spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: p2s-spin 1s ease-in-out infinite;
+}
+
+@keyframes p2s-spin {
+  to { transform: rotate(360deg); }
+}
+
+.p2s .error-message {
+  background-color: #FFDEDE;
+  border-left: 4px solid #CF0F47;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #CF0F47;
+  border-radius: 4px;
+}
+
+.p2s .error-icon {
+  font-weight: bold;
+}
+
+/* Output View Styles */
+.p2s .output-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.p2s .output-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.p2s .output-header h2 {
+  color: #000000;
+  margin: 0;
+}
+
+.p2s .new-conversion-btn {
+  background: none;
+  border: none;
+  color: #CF0F47;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.p2s .new-conversion-btn:hover {
+  background-color: rgba(207, 15, 71, 0.1);
+}
+
+.p2s .input-display {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.p2s .input-display h3 {
+  margin: 0 0 0.5rem 0;
+  color: #000000;
+}
+
+.p2s .protein-name {
+  font-weight: 600;
+  color: #CF0F47;
+  margin-bottom: 0.5rem;
+}
+
+.p2s .protein-sequence-display {
+  font-family: monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.p2s .smiles-result {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.p2s .result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.p2s .result-header h3 {
+  margin: 0;
+  color: #000000;
+}
+
+.p2s .copy-btn {
+  background: none;
+  border: 1px solid #CF0F47;
+  color: #CF0F47;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s;
+}
+
+.p2s .copy-btn:hover {
+  background-color: rgba(207, 15, 71, 0.1);
+}
+
+.p2s .smiles-code {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.p2s .smiles-code code {
+  font-family: monospace;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.p2s .visualization-section {
+  margin-top: 1rem;
+}
+
+.p2s .viz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.p2s .viz-header h3 {
+  margin: 0;
+  color: #000000;
+}
+
+.p2s .viz-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.p2s .action-btn {
+  background: none;
+  border: 1px solid #CF0F47;
+  color: #CF0F47;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: all 0.2s;
+}
+
+.p2s .action-btn:hover {
+  background-color: rgba(207, 15, 71, 0.1);
+}
+
+.p2s .molecule-image-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.p2s .molecule-image {
+  max-width: 90%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.p2s .visualize-btn {
+  width: 100%;
+  background-color: #CF0F47;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+}
+
+.p2s .visualize-btn:hover {
+  background-color: #FF0B55;
+}
+
+.p2s .visualize-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Footer Styles */
+.p2s .converter-footer {
+  text-align: center;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.p2s .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.p2s .footer-links a {
+  color: #CF0F47;
+  text-decoration: none;
+}
+
+.p2s .footer-links a:hover {
+  text-decoration: underline;
+}
+
+.p2s .footer-links span {
+  color: #999;
+}
+
+/* Features Section */
+.p2s .features-section {
+  margin-top: 2rem;
+}
+
+.p2s .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.p2s .feature-card {
+  background-color: #FFF5F7;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: transform 0.2s;
+}
+
+.p2s .feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.p2s .feature-icon {
+  color: #CF0F47;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.p2s .feature-card h4 {
+  color: #000000;
+  margin: 0 0 0.5rem 0;
+}
+
+.p2s .feature-card p {
+  color: #555;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.p2s .protein-converter .molecule-image-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.p2s .protein-converter .molecule-image {
+  max-width: 90%;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}

@@ -1,0 +1,59 @@
+.partners-section {
+    padding: 4rem 2rem;
+    background-color: #f8fafc;
+  }
+  
+  .partners-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d3748;
+    margin-bottom: 2rem;
+  }
+  
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: center;
+  }
+  
+  .partner-logo {
+    text-align: center;
+  }
+  
+  .logo-placeholder {
+    width: 120px;
+    height: 80px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+  
+  .partner-logo p {
+    margin-top: 1rem;
+    font-weight: 500;
+    color: #4a5568;
+  }
+  
+  /* Example logo placeholder styles */
+  .mayo-logo {
+    background-color: #0068b3;
+    color: white;
+  }
+  
+  .pfizer-logo {
+    background-color: #0093d5;
+    color: white;
+  }
+  
+  .mit-logo {
+    background-color: #8a8b8c;
+    color: white;
+  }

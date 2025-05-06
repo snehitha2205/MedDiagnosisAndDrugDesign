@@ -1,0 +1,151 @@
+/* Modern Medical Visualization Interface */
+.visualization-container {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+    background: white;
+    color: #000000;
+}
+
+.visualization-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.visualization-header h1 {
+    color: #000000;
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.5px;
+}
+
+.visualization-header p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Upload Area - Minimal Card Style */
+.upload-area {
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    background: #f9f9f9;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.upload-area.active {
+    border-color: #FF0B55;
+    background: rgba(255, 11, 85, 0.03);
+    box-shadow: 0 0 0 3px rgba(255, 11, 85, 0.1);
+}
+
+.browse-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #FF0B55;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.browse-button:hover {
+    border-color: #FF0B55;
+    background: rgba(255, 11, 85, 0.05);
+}
+
+/* File Selection Indicator */
+.upload-area p {
+    margin-top: 1rem;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.95rem;
+}
+
+/* Primary Action Button */
+.predict-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #CF0F47 0%, #FF0B55 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(207, 15, 71, 0.2);
+}
+
+.predict-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(207, 15, 71, 0.25);
+}
+
+.predict-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #e0e0e0;
+}
+
+/* Status Messages */
+.error-message {
+    color: #CF0F47;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(207, 15, 71, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid #CF0F47;
+}
+
+.visualization-main {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Micro-interactions */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.uploading {
+    animation: pulse 1.5s infinite;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .visualization-container {
+        padding: 1.5rem;
+    }
+    
+    .upload-area {
+        padding: 2rem 1rem;
+    }
+}

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Image Viewer</title>
+    <!-- Load jQuery first (required by Papaya) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Then load Papaya from static files -->
+    <link rel="stylesheet" type="text/css" href="/viewer-static/papaya.css">
+    <script src="/viewer-static/papaya.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .viewer-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .viewer-header {
+            margin-bottom: 20px;
+            text-align: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .viewer-content {
+            display: flex;
+            flex: 1;
+            gap: 20px;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .image-title {
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+        .papaya-container {
+            flex: 1;
+            min-height: 0; /* Fix for flexbox overflow */
+        }
+        .combined-view {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .combined-title {
+            padding: 10px;
+            background-color: #2ecc71;
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .viewer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="viewer-container">
+        <div class="viewer-header">
+            <h1>3D Medical Image Viewer</h1>
+            <p>Original and Predicted Segmentation</p>
+        </div>
+        
+        <div class="viewer-content">
+            <!-- Original Image Viewer -->
+            <div class="image-container">
+                <div class="image-title">Original Image</div>
+                <div class="papaya-container">
+                    <div class="papaya" data-params="originalParams"></div>
+                </div>
+            </div>
+            
+            <!-- Predicted Image Viewer -->
+            <div class="image-container">
+                <div class="image-title">Predicted Segmentation</div>
+                <div class="papaya-container">
+                    <div class="papaya" data-params="predictedParams"></div>
+                </div>
+            </div>
+            
+            <!-- Combined View (optional) -->
+            <div class="image-container combined-view">
+                <div class="combined-title">Combined View</div>
+                <div class="papaya-container">
+                    <div class="papaya" data-params="combinedParams"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const original = urlParams.get('original');
+            const predicted = urlParams.get('predicted');
+            
+            if (!original) {
+                document.body.innerHTML = '<h1>Error: Missing original image parameter</h1>';
+                throw new Error('Missing original image parameter in URL');
+            }
+
+            // Initialize Papaya after ensuring it's loaded
+            if (typeof papaya !== 'undefined') {
+                // Original image viewer
+                const originalParams = {
+                    images: [original],
+                    showControls: true,
+                    allowScroll: true,
+                    showSliceNumber: true,
+                    showOrientation: true,
+                    radiological: true,
+                    smoothDisplay: true
+                };
+                
+                // Predicted image viewer
+                const predictedParams = {
+                    images: [predicted],
+                    showControls: true,
+                    allowScroll: true,
+                    showSliceNumber: true,
+                    showOrientation: true,
+                    radiological: true,
+                    smoothDisplay: true
+                };
+                
+                // Combined view
+                const combinedParams = {
+                    images: [original, predicted],
+                    showControls: true,
+                    allowScroll: true,
+                    showSliceNumber: true,
+                    showOrientation: true,
+                    combineParam: true,  // This enables the overlay
+                    radiological: true,
+                    smoothDisplay: true
+                };
+                
+                // Initialize all viewers
+                papaya.Container.resetViewer(0, originalParams);
+                papaya.Container.resetViewer(1, predictedParams);
+                papaya.Container.resetViewer(2, combinedParams);
+            } else {
+                console.error("Papaya library not loaded correctly");
+                document.body.innerHTML = '<h1>Error: Failed to load viewer library</h1>';
+            }
+        });
+    </script>
+</body>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .viewer-container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .viewer-header {
+        text-align: center;
+        background-color: #2c3e50;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+    .viewer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 15px;
+        flex: 1;
+        overflow: auto;
+    }
+
+    .image-container {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        min-height: 300px;
+    }
+
+    .image-title,
+    .combined-title {
+        padding: 12px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .image-title {
+        background-color: #3498db;
+    }
+
+    .combined-title {
+        background-color: #2ecc71;
+    }
+
+    .papaya-container {
+        flex: 1;
+        min-height: 300px;
+        position: relative;
+    }
+
+    .papaya {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .viewer-content {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+</html>

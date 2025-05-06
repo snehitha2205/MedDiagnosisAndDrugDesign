@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Papaya Viewer</title>
+    <link rel="stylesheet" type="text/css" href="/static/papaya.css">
+    <script src="/static/papaya.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .viewer-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .viewer-header {
+            margin-bottom: 20px;
+        }
+        .papaya-container {
+            flex: 1;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="viewer-container">
+        <div class="viewer-header">
+            <h1>3D Medical Image Viewer</h1>
+            <p>Original and Predicted Segmentation</p>
+        </div>
+        <div class="papaya-container">
+            <div class="papaya" data-params="params"></div>
+        </div>
+    </div>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const original = urlParams.get('original');
+        const predicted = urlParams.get('predicted');
+        
+        if (!original || !predicted) {
+            document.body.innerHTML = '<h1>Error: Missing image parameters</h1>';
+            throw new Error('Missing image parameters in URL');
+        }
+
+        const params = {
+            images: [original, predicted],
+            showControls: true,
+            allowScroll: true,
+            showSliceNumber: true,
+            showOrientation: true,
+            combineParam: true,
+            radiological: true,
+            smoothDisplay: true
+        };
+        
+        papaya.Container.resetViewer(0, params);
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+.features {
+    background-color: #FFDEDE;
+    padding: 5rem 2rem;
+    color: #000000;
+  }
+  
+  .features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .features-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .features-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #000000;
+  }
+  
+  .features-subtitle {
+    font-size: 1.2rem;
+    color: #000000;
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  
+  .feature-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CF0F47;
+    color: #FFDEDE;
+    border-radius: 50%;
+    font-size: 1.5rem;
+  }
+  
+  .feature-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #000000;
+  }
+  
+  .feature-description {
+    color: #000000;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    min-height: 60px;
+  }
+  
+  .feature-button {
+    background-color: #CF0F47;
+    color: #FFDEDE;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  .feature-button:hover {
+    background-color: #FF0B55;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .features {
+      padding: 3rem 1rem;
+    }
+  
+    .features-title {
+      font-size: 2rem;
+    }
+  
+    .features-subtitle {
+      font-size: 1rem;
+    }
+  
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }

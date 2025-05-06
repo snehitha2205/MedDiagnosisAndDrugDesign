@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "nodemon index.js",
+"start:all": "concurrently \"npm run start\" \"python3 segment.py\" \"python3 predict.py\" \"python3 DrugMoleculeGenerator.py\" \"python3 masking.py\" \"python3 Docking.py\" \"python3 BioInformatics.py\" \"python3 NIFTI.py\""
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "joi-password-complexity": "^5.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.10.0",
+    "nodemailer": "^6.10.0",
+    "nodemon": "^3.1.9",
+    "twilio": "^5.4.4"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

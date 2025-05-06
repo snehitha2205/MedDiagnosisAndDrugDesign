@@ -1,0 +1,14 @@
+.env
+
+# Ignore Python virtual environment
+venv/
+# Ignore PyTorch checkpoint files
+checkpoint.pth
+
+# Ignore Node.js cache
+node_modules/
+client/node_modules/
+client/node_modules/.cache/
+
+# Ignore Git internal files (never needed to be in the repo)
+.git/
