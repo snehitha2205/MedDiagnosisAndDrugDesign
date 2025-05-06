@@ -1,8 +1,8 @@
-flask
-flask-cors
-numpy
-rdkit-pypi
-torch
-scikit-learn
-joblib
-gunicorn
+flask==2.2.5
+flask-cors==3.0.10
+numpy==1.26.4  # Last stable NumPy 1.x version
+rdkit==2023.3.3
+torch==2.2.1
+scikit-learn==1.4.0
+joblib==1.3.2
+gunicorn==21.2.0
