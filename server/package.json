@@ -5,6 +5,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
+    "preinstall": "npm install -g node-gyp",
+  "install": "node-gyp rebuild",
+  "build": "npm rebuild bcrypt --update-binary",
     "start:all": "concurrently \"npm run start\" \"python3 segment.py\" \"python3 predict.py\" \"python3 DrugMoleculeGenerator.py\" \"python3 masking.py\" \"python3 Docking.py\" \"python3 BioInformatics.py\" \"python3 NIFTI.py\""
   },
   "keywords": [],
