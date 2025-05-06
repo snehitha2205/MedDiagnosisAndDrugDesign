@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { User, validateSignup } = require("../models/user"); // Updated import!
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const Token = require("../models/token");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
