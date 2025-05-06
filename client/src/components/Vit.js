@@ -18,7 +18,7 @@ function App() {
     setError(null);
     
     try {
-      const response = await fetch('http://localhost:5003/predict', {
+      const response = await fetch('https://bioinformatics-api.onrender.com/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
