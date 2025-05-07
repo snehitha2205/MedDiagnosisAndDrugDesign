@@ -173,7 +173,7 @@ const MobileVerification = () => {
   const sendOtp = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axios.post("http://localhost:8080/api/send-otp", { phone });
+      const { data } = await axios.post("https://node-service-o256.onrender.com/api/send-otp", { phone });
       setOtpSent(true);
       setError("");
       alert("OTP sent successfully!");
@@ -187,7 +187,7 @@ const MobileVerification = () => {
   const verifyOtp = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axios.post("http://localhost:8080/api/verify-otp", { phone, otp });
+      const { data } = await axios.post("https://node-service-o256.onrender.com/api/verify-otp", { phone, otp });
       alert("OTP verified successfully!");
       localStorage.setItem("verifiedPhone", phone);
       navigate("/signup");

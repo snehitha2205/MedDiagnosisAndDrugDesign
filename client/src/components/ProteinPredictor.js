@@ -206,7 +206,7 @@ const ProteinPredictor = () => {
     
     try {
       const response = await axios.post(
-        'http://localhost:8080/api/predict',
+        'https://node-service-o256.onrender.com/api/predict',
         { sequence },
         {
           headers: { 'Content-Type': 'application/json' },
